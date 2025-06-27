@@ -1,0 +1,128 @@
+:root{
+    --red: 248 113 113;
+    --blue: 56 189 248;
+    --green: 74 222 128;
+    --yellow: 253 224 71;
+    --background: 0 0 0;
+    --active: 0 0 0;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background: rgb(var(--background));
+    overflow: hidden;
+    perspective: 2000px;
+}
+
+#container{
+    width: 140rem;
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-rows: repeat(40,1fr);
+    grid-template-columns: repeat(40,1fr);
+    position: absolute;
+    transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg) scale(1.25);
+}
+
+#container:after,
+#container::before{
+    content: "";
+    position: absolute;
+    inset: 0px;
+    pointer-events: none;
+}
+
+#container::before{
+    z-index: 2;
+    background-image: url("https://codetheworld.io/wp-content/uploads/2024/08/plus-pattern-center.webp");
+    background-size: 5%;
+    background-repeat: repeat;
+    opacity: 0.25;
+}
+
+#container::after{
+    z-index: 3;
+    background: radial-gradient(circle, transform 25%, rgb(var(--background))80%)
+}
+
+.tile{
+    border: 1px solid rgb(255 255 255 / 25%);
+    transition: background-color 1500ms;
+}
+
+.tile.hover{
+    transition-duration:0ms;
+}
+
+.tile:nth-child(4n){
+    background-color: rgb(var(--red));
+    --active: var(--red);
+}
+
+.tile:nth-child(4n +1){
+    background-color: rgb(var(--blue));
+    --active: var(--blue)
+}
+
+.tile:nth-child(4n +2){
+    background-color: rgb(var(--green));
+    --active: var(--green)
+}
+
+.tile:nth-child(4n +3){
+    background-color: rgb(var(--yellow));
+    --active: var(--yellow)
+}
+
+.tile:nth-child(7n){
+    background-color: rgb(var(--blue));
+    --active: var(--blue)
+}
+
+.tile:nth-child(7n +3){
+    background-color: rgb(var(--green));
+    --active: var(--green)
+}
+
+.tile:nth-child(7n +5){
+    background-color: rgb(var(--yellow));
+    --active: var(--yellow)
+}
+
+.tile:nth-child(7n +6){
+    background-color: rgb(var(--red));
+    --active: var(--red)
+}
+
+.tile:nth-child(11n +1){
+    background-color: rgb(var(--red));
+    --active: var(--red)
+}
+
+.tile:nth-child(11n +4){
+    background-color: rgb(var(--blue));
+    --active: var(--blue)
+}
+
+.tile:nth-child(11n +7){
+    background-color: rgb(var(--green));
+    --active: var(--green)
+}
+
+.tile:nth-child(11n +10){
+    background-color: rgb(var(--yellow));
+    --active: var(--yellow)
+}
+
+.tile{
+    background-color: black !important;
+}
+
+.tile:hover{
+    background-color: rgb(var(--active)) !important;
+    transition-duration: 0ms;
+}
