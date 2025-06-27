@@ -126,3 +126,17 @@ body{
     background-color: rgb(var(--active)) !important;
     transition-duration: 0ms;
 }
+
+.caption {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: white;
+    font-size: 1.25rem;
+    font-family: monospace;
+    z-index: 5;
+    background: rgba(0,0,0,0.5);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+  }
+  
